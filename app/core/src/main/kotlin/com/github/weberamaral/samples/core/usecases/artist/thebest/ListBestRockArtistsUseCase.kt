@@ -8,11 +8,11 @@ class ListBestRockArtistsUseCase(private val gatewayRequest: GatewayRequest) : U
 
     override fun execute(request: List<Id>): List<Artist> {
         if (request.isEmpty() || request.size > 5)
-            throw BestRockArtistsException("O número de artistas deve ser maior que ZERO e menor que 5.")
-        return gatewayRequest.getBestArtists(request)
+            throw BestRockArtistsException("O número de artistas deve ser maior que ZERO e menor ou igual que 5.")
+        return gatewayRequest.getBestRockArtists(request)
     }
 
     interface GatewayRequest {
-        fun getBestArtists(ids: List<Id>) : List<Artist>
+        fun getBestRockArtists(ids: List<Id>) : List<Artist>
     }
 }
