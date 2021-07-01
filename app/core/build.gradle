@@ -5,3 +5,9 @@
 plugins {
     id 'com.github.weberamaral.samples.kotlin-library-conventions'
 }
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.18.0'
+}
