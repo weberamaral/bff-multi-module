@@ -10,4 +10,10 @@ data class Track(
     val popularity: Int,
     val trackNumber: Int,
     val previewUrl: URI,
+
+    val albumId: Id,
+    val album: Album?,
+
+    val artistId: Id,
+    val artist: Artist?
 )

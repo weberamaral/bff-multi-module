@@ -7,7 +7,10 @@ data class Album(
     val name: String,
     val releaseDate: LocalDateTime,
     val image: Image,
-    val albumType: AlbumType
+    val albumType: AlbumType,
+
+    val artistId: Id,
+    val artist: Artist?
 )
 
 enum class AlbumType {

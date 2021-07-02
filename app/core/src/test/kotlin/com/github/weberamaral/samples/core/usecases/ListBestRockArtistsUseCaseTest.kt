@@ -3,7 +3,7 @@ package com.github.weberamaral.samples.core.usecases
 import com.github.weberamaral.samples.core.entity.Artist
 import com.github.weberamaral.samples.core.entity.Id
 import com.github.weberamaral.samples.core.entity.Image
-import com.github.weberamaral.samples.core.usecases.artist.thebest.BestRockArtistsException
+import com.github.weberamaral.samples.core.usecases.artist.thebest.ListBestRockArtistsValidationException
 import com.github.weberamaral.samples.core.usecases.artist.thebest.ListBestRockArtistsUseCase
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatExceptionOfType
@@ -24,14 +24,14 @@ class ListBestRockArtistsUseCaseTest {
     @Test fun errorWhenSizeEquals0() {
         val ids = listOf<Id>();
         givenInvalidArtistsSize(ids);
-        assertThatExceptionOfType(BestRockArtistsException::class.java)
+        assertThatExceptionOfType(ListBestRockArtistsValidationException::class.java)
             .isThrownBy { listBestRockArtistsUseCase.execute(ids) }
     }
 
     @Test fun errorWhenSizeGreaterThan5() {
         val ids = listOf(Id("1"), Id("2"), Id("3"), Id("4"), Id("5"), Id("6"))
         givenInvalidArtistsSize(ids);
-        assertThatExceptionOfType(BestRockArtistsException::class.java)
+        assertThatExceptionOfType(ListBestRockArtistsValidationException::class.java)
             .isThrownBy { listBestRockArtistsUseCase.execute(ids) }
     }
 
